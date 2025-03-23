@@ -12,7 +12,7 @@ A stylish web-based currency converter built with Python and Flask, featuring re
 ## Requirements
 - Python 3.6+
 - Dependencies: `flask`, `requests` (`pip install flask requests`)
-- API Key: `cur_live_TzZm2yLLkZHcDdklsLMAK5DHgEySV0S1KPP4Ejb4` (use env var recommended)
+- API Key. (use env var recommended)
 
 ## Setup
 1. Clone the repo: `git clone <repo-url>`
