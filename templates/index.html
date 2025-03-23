@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Moedas Majestoso</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Conversor de Moedas Real</h1>
+            <p class="subtitle">Transforme riquezas com elegância e precisão</p>
+        </header>
+
+        <main>
+            <form method="POST" class="form-conversor">
+                <div class="input-group">
+                    <label for="valor">Valor a Converter:</label>
+                    <input type="number" step="0.01" name="valor" id="valor" required placeholder="Digite o valor" autocomplete="off">
+                </div>
+
+                <div class="select-group">
+                    <div class="select-box">
+                        <label for="moeda_origem">Moeda de Origem:</label>
+                        <select name="moeda_origem" id="moeda_origem" required>
+                            {% for moeda in moedas %}
+                                <option value="{{ moeda }}">{{ moeda }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="select-box">
+                        <label for="moeda_destino">Moeda de Destino:</label>
+                        <select name="moeda_destino" id="moeda_destino" required>
+                            {% for moeda in moedas %}
+                                <option value="{{ moeda }}">{{ moeda }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-converter">Converter</button>
+            </form>
+
+            {% if resultado %}
+                <div class="resultado">
+                    <h2>Resultado da Conversão</h2>
+                    <p class="resultado-valor">{{ resultado }}</p>
+                </div>
+            {% endif %}
+
+            {% if erro %}
+                <div class="erro">
+                    <h2>Erro</h2>
+                    <p>{{ erro }}</p>
+                </div>
+            {% endif %}
+        </main>
+
+        <footer>
+            <p>Feito com majestade em Python & Flask</p>
+        </footer>
+    </div>
+</body>
+</html>
